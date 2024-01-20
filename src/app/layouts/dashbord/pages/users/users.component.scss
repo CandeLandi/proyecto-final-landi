@@ -1,0 +1,21 @@
+
+.users-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+
+    .form-user-container {
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .table-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
+    }    
+}

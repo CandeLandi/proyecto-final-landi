@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { UsersComponent } from './users.component';
 import { MatTableModule } from '@angular/material/table';
 import { UserFormComponent } from './components/user-form/user-form.component';
-
 // ENVOLTURA DE INPUT
 import { MatFormFieldModule } from '@angular/material/form-field';
 // INPUT

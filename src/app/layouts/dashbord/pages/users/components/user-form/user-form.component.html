@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center">
+<div class="form-user">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid formgrid">
         <div class="col-6">
           <mat-form-field class="w-full">
@@ -37,6 +37,5 @@
           <button mat-flat-button color="primary">Guardar</button>
         </div>
       </form>
-    
-      <pre>{{ userForm.value | json }}</pre>
+
     </div>

@@ -3,13 +3,13 @@
   <!-- SIDEBAR -->
   <!-- SIDEBAR -->
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    @if (showFiller) {
-    <p>Lorem, ipsum dolor sit amet consectetur.</p>
-    }
+    <p>PERFIL</p>
     <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
+      Entregas pendientes
     </button>
+    @if (showFiller) {
+    <p>No hay entregas pendientes</p>
+    }
   </mat-drawer>
   <!-- SIDEBAR -->
   <!-- SIDEBAR -->
@@ -18,18 +18,16 @@
   <!-- CONTENIDO -->
   <!-- CONTENIDO -->
   <div class="example-sidenav-content">
-    <!-- TOOLBAR -->
-    <!-- TOOLBAR -->
-    <!-- TOOLBAR -->
+
     <mat-toolbar color="primary">
       <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
         aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Librería</span>
+      <span appTittles>Cursos</span>
       <span class="example-spacer"></span>
       <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon></mat-icon>
+        <mat-icon>favorite-icon</mat-icon>
       </button>
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
         <mat-icon></mat-icon>
