@@ -10,6 +10,7 @@ import { UsersService } from '../../../../core/services/users.service';
   styleUrl: './users.component.scss',
 })
 export class UsersComponent {
+  mostrarFormulario: boolean = true;
   displayedColumns: string[] = ['id', 'fullName', 'email', 'role', 'delete'];
   dataSource: UserPipe[] = [
     {
@@ -18,31 +19,31 @@ export class UsersComponent {
       lastName: 'Martinez',
       email: 'marcelo@gmail.com',
       password: '123456',
-      role: 'USER',
+      role: 'PROFESOR',
     },
     {
       id: 2,
       firstName: 'Belen',
-      lastName: 'Lopez',
+      lastName: 'ALUMNA',
       email: 'Belen@gmail.com',
       password: '123456',
-      role: 'USER',
+      role: 'ALUMNO',
     },
     {
-      id: 2,
+      id: 3,
       firstName: 'Federico',
       lastName: 'Campo',
       email: 'Fefe@gmail.com',
       password: '123456',
-      role: 'ADMIN',
+      role: 'ALUMNO',
     },
     {
-      id: 2,
+      id: 4,
       firstName: 'Federico',
       lastName: 'Campo',
-      email: 'Fefe@gmail.com',
+      email: 'Fede@gmail.com',
       password: '123456',
-      role: 'ADMIN',
+      role: 'PROFESOR',
     },
   ];
 
@@ -51,6 +52,10 @@ export class UsersComponent {
   onUserSubmitted(ev: UserPipe): void {
     //Angular material nos pide crear un nuevo array para poder refrescar la datasource de la tabla
     this.dataSource = [...this.dataSource, { ...ev, id: new Date().getTime() }];
+    this.mostrarFormulario = false;
   }
- 
+  deleteUser(id: number): void {
+    // Filtrar el usuario con el id proporcionado
+    this.dataSource = this.dataSource.filter(usuario => usuario.id !== id);
+  }
 }
