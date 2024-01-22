@@ -10,7 +10,7 @@ import { UsersService } from '../../../../core/services/users.service';
   styleUrl: './users.component.scss',
 })
 export class UsersComponent {
-  displayedColumns: string[] = ['id', 'fullName', 'email', 'role'];
+  displayedColumns: string[] = ['id', 'fullName', 'email', 'role', 'delete'];
   dataSource: UserPipe[] = [
     {
       id: 1,
@@ -52,4 +52,5 @@ export class UsersComponent {
     //Angular material nos pide crear un nuevo array para poder refrescar la datasource de la tabla
     this.dataSource = [...this.dataSource, { ...ev, id: new Date().getTime() }];
   }
+ 
 }

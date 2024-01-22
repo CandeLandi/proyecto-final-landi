@@ -1,22 +1,9 @@
 <mat-drawer-container class="dashboard-container" autosize>
-  <!-- SIDEBAR -->
-  <!-- SIDEBAR -->
-  <!-- SIDEBAR -->
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>PERFIL</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Entregas pendientes
-    </button>
-    @if (showFiller) {
-    <p>No hay entregas pendientes</p>
-    }
-  </mat-drawer>
-  <!-- SIDEBAR -->
-  <!-- SIDEBAR -->
-  <!-- SIDEBAR -->
 
-  <!-- CONTENIDO -->
-  <!-- CONTENIDO -->
+  <mat-drawer #drawer class="example-sidenav" mode="side"> 
+
+  </mat-drawer>
+
   <div class="example-sidenav-content">
 
     <mat-toolbar color="primary">
@@ -33,11 +20,10 @@
         <mat-icon></mat-icon>
       </button>
     </mat-toolbar>
-    <div class="p-5">
+    <div >
       <app-users></app-users>
     </div>
 
   </div>
-  <!-- CONTENIDO -->
-  <!-- CONTENIDO -->
+
 </mat-drawer-container>

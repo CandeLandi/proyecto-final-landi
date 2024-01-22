@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from '../../../../core/services/users.service';
 import { SharedModule } from '../../../../shared/shared.module';
+import { MatIconModule } from '@angular/material/icon';
 /* import { UsersMockService } from '../../../../core/services/users-mock.service';
 import { MY_USER_TOKEN } from '../../../../core/injection-tokens'; */
 @NgModule({
@@ -29,7 +30,8 @@ import { MY_USER_TOKEN } from '../../../../core/injection-tokens'; */
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    MatIconModule
   ],
   exports: [
     UsersComponent, UserFormComponent
