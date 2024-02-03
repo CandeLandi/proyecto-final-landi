@@ -10,6 +10,9 @@ import { UsersComponent } from './pages/users/users.component';
 import { UsersModule } from './pages/users/users.module';
 import { PipesModule } from './pages/pipes/pipes.module';
 import { SharedModule } from '../../shared/shared.module';
+import { MatListModule } from '@angular/material/list';
+import { AppRoutingModule } from '../../app-routing.module';
+import { CursosModule } from './pages/cursos/cursos.module';
 
  @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { SharedModule } from '../../shared/shared.module';
     MatIconModule,
     UsersModule,
     PipesModule,
-    SharedModule
+    SharedModule,
+    MatListModule,
+    AppRoutingModule,
+    CursosModule
   ],
   exports: [
     DashbordComponent

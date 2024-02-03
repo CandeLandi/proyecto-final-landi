@@ -11,6 +11,11 @@ import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import esAR from '@angular/common/locales/es-AR';
 import { UsersModule } from './layouts/dashbord/pages/users/users.module';
+import { CursosModule } from './layouts/dashbord/pages/cursos/cursos.module';
+import { MatIconModule } from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoadingService } from './core/loading.service';
+
 registerLocaleData(esAR);
 registerLocaleData(es);
 
@@ -24,12 +29,16 @@ registerLocaleData(es);
     BrowserAnimationsModule,
     DashbordModule,
     MatTableModule,
-    UsersModule
+    UsersModule,
+    CursosModule,
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {  provide: LOCALE_ID,
     useValue: 'es-AR',
-    }
+    },
+    LoadingService
   ],
   bootstrap: [AppComponent]
 })

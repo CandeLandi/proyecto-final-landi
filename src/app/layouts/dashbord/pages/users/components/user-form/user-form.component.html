@@ -1,30 +1,30 @@
 <div class="form-user" >
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid formgrid">
-        <div class="col-6">
+        <div >
           <mat-form-field class="w-full">
             <mat-label>Nombre</mat-label>
             <input formControlName="firstName" matInput type="text" />
           </mat-form-field>
         </div>
-        <div class="col-6">
+        <div >
           <mat-form-field class="w-full">
             <mat-label>Apellido</mat-label>
             <input formControlName="lastName" matInput type="text" />
           </mat-form-field>
         </div>
-        <div class="col-12">
+        <div >
           <mat-form-field class="w-full">
             <mat-label>Email</mat-label>
             <input formControlName="email" matInput type="email" />
           </mat-form-field>
         </div>
-        <div class="col-6">
+        <div>
           <mat-form-field class="w-full">
             <mat-label>Contrasena</mat-label>
             <input formControlName="password" matInput type="password" />
           </mat-form-field>
         </div>
-        <div class="col-6">
+        <div>
           <mat-form-field class="w-full">
             <mat-label>Rol</mat-label>
             <mat-select formControlName="role">
@@ -33,7 +33,7 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div class="col-12 flex justify-content-end">
+        <div>
           <button mat-flat-button color="primary">Guardar</button>
         </div>
       </form>
