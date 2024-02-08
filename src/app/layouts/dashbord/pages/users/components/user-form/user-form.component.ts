@@ -21,6 +21,7 @@ export class UserFormComponent {
       email: this.fb.control('', Validators.required),
       password: this.fb.control('', Validators.required),
       role: this.fb.control('', Validators.required),
+      course: this.fb.control('',Validators.required )
     });
   }
 //Funcion para evitar que no se mande el formulario sin haber completado y cuando se envia, con reset, reseteamos los campos

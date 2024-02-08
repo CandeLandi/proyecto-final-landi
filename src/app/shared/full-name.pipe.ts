@@ -7,6 +7,7 @@ export interface UserPipe {
   email: string;
   password: string;
   role: string;
+  course: string;
 }
 
 @Pipe({

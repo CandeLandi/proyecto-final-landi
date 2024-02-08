@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CursosService } from './cursos.service';
+import { CursosService } from '../../../../core/services/cursos.service';
 import { Curso } from './models';
 
 @Component({
@@ -9,15 +9,5 @@ import { Curso } from './models';
 })
 export class CursosComponent {
 
-  displayedColumns = ['id', 'courseName', 'createdAt', 'actions']
-
-  cursos: Curso[] = []
-
-  constructor(private cursosService: CursosService) {
-    this.cursosService.getCursos().subscribe({
-      next: (cursos) => {
-        this.cursos = cursos;
-      }
-    })
-  }
-}
+ 
+};

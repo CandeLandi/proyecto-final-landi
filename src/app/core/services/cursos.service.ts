@@ -1,26 +1,25 @@
 import { Injectable } from "@angular/core";
-import { Curso } from "./models";
+import { Curso } from "../../layouts/dashbord/pages/cursos/models";
 import { delay, of } from "rxjs"; 
 
 Injectable()
 export class CursosService {
 
-
     getCursos() {
-        const cursos: Curso[] = [
+        let cursos: Curso[] = [
             {
                 id: 1,
-                name: 'Peluqueria',
+                name: 'Angular',
                 createdAt: new Date()
             },
             {
                 id: 2,
-                name: 'Peluqueria',
+                name: 'React',
                 createdAt: new Date()
             },
             {
                 id: 3,
-                name: 'Peluqueria',
+                name: 'JavaScript',
                 createdAt: new Date()
             }
         ];

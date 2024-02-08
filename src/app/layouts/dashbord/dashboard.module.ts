@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashbordComponent } from './dashbord.component';
+import { DashboardComponent } from './dashboard.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -11,12 +11,16 @@ import { UsersModule } from './pages/users/users.module';
 import { PipesModule } from './pages/pipes/pipes.module';
 import { SharedModule } from '../../shared/shared.module';
 import { MatListModule } from '@angular/material/list';
-import { AppRoutingModule } from '../../app-routing.module';
 import { CursosModule } from './pages/cursos/cursos.module';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { DashboardRoutingModule } from './dashboard.router';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
  @NgModule({
   declarations: [
-    DashbordComponent
+    DashboardComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
@@ -28,11 +32,12 @@ import { CursosModule } from './pages/cursos/cursos.module';
     PipesModule,
     SharedModule,
     MatListModule,
-    AppRoutingModule,
-    CursosModule
+    CursosModule,
+    RouterModule,
+    DashboardRoutingModule
   ],
   exports: [
-    DashbordComponent
+    DashboardComponent
   ]
 })
-export class DashbordModule { }
+export class DashboardModule { }

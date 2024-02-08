@@ -14,12 +14,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from '../../../../core/services/users.service';
 import { SharedModule } from '../../../../shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 /* import { UsersMockService } from '../../../../core/services/users-mock.service';
 import { MY_USER_TOKEN } from '../../../../core/injection-tokens'; */
 @NgModule({
   declarations: [
     UsersComponent,
     UserFormComponent,
+    UserDetailComponent,
   ],
   imports: [
     CommonModule,

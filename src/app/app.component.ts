@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoadingService } from './core/loading.service';
+import { LoadingService } from './core/services/loading.service';
 import { Observable } from 'rxjs';
 
 @Component({

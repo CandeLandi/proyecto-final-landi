@@ -1,35 +1,36 @@
 <div class="form-user" >
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid formgrid">
         <div >
-          <mat-form-field class="w-full">
+          <mat-form-field >
             <mat-label>Nombre</mat-label>
             <input formControlName="firstName" matInput type="text" />
           </mat-form-field>
         </div>
         <div >
-          <mat-form-field class="w-full">
+          <mat-form-field >
             <mat-label>Apellido</mat-label>
             <input formControlName="lastName" matInput type="text" />
           </mat-form-field>
         </div>
         <div >
-          <mat-form-field class="w-full">
+          <mat-form-field >
             <mat-label>Email</mat-label>
             <input formControlName="email" matInput type="email" />
           </mat-form-field>
         </div>
         <div>
-          <mat-form-field class="w-full">
-            <mat-label>Contrasena</mat-label>
+          <mat-form-field >
+            <mat-label>Contraseña</mat-label>
             <input formControlName="password" matInput type="password" />
           </mat-form-field>
         </div>
         <div>
-          <mat-form-field class="w-full">
-            <mat-label>Rol</mat-label>
-            <mat-select formControlName="role">
-              <mat-option value="ADMIN">PROFESOR</mat-option>
-              <mat-option value="USER">ALUMNO</mat-option>
+          <mat-form-field>
+            <mat-label>Curso</mat-label>
+            <mat-select formControlName="course">
+              <mat-option value="ANGULAR">ANGULAR</mat-option>
+              <mat-option value="JAVASCRIPT"> JAVASCRIPT </mat-option>
+              <mat-option value="REACT"> REACT </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -37,5 +38,4 @@
           <button mat-flat-button color="primary">Guardar</button>
         </div>
       </form>
-
     </div>

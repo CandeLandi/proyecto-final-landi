@@ -11,7 +11,7 @@ import { UsersService } from '../../../../core/services/users.service';
 })
 export class UsersComponent {
   mostrarFormulario: boolean = true;
-  displayedColumns: string[] = ['id', 'fullName', 'email', 'role', 'delete'];
+  displayedColumns: string[] = ['id', 'fullName', 'email', 'role', 'course', 'delete'];
   dataSource: UserPipe[] = [
     {
       id: 1,
@@ -20,6 +20,7 @@ export class UsersComponent {
       email: 'marcelo@gmail.com',
       password: '123456',
       role: 'PROFESOR',
+      course: 'ANGULAR',
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ export class UsersComponent {
       email: 'Belen@gmail.com',
       password: '123456',
       role: 'ALUMNO',
+      course: 'JAVASCRIPT',
     },
     {
       id: 3,
@@ -36,6 +38,7 @@ export class UsersComponent {
       email: 'Fefe@gmail.com',
       password: '123456',
       role: 'ALUMNO',
+      course: 'REACT',
     },
     {
       id: 4,
@@ -44,6 +47,7 @@ export class UsersComponent {
       email: 'Fede@gmail.com',
       password: '123456',
       role: 'PROFESOR',
+      course: 'REACT',
     },
   ];
 

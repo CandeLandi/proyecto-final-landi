@@ -11,20 +11,35 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+
+
+const SHARED_MODULES = [
+  MatTableModule,
+  MatButtonModule,
+  MatIconModule,
+  MatCardModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
+  ReactiveFormsModule,
+  MatDatepickerModule,
+  MatProgressSpinnerModule,
+  MatOptionModule,
+  MatSidenavModule,
+  MatDialogModule
+]
 
 @NgModule({
   declarations: [FullNamePipe, TittlesDirective],
   imports: [
     CommonModule,
+    SHARED_MODULES
   ],
   exports: [FullNamePipe,TittlesDirective, MatTableModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatDatepickerModule, ],
+    SHARED_MODULES],
 })
 export class SharedModule {}
