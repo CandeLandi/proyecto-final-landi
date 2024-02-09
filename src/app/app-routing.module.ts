@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './layouts/dashboard/dashboard.component';
+import { DashboardComponent } from './layouts/dashbord/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
     loadChildren: () =>
-      import('./layouts/dashboard/dashboard.module').then((m) => m.DashbordModule)
+      import('./layouts/dashbord/dashboard.module').then((m) => m.DashboardModule)
   },
   {
     path: 'auth',
