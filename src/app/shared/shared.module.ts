@@ -45,6 +45,6 @@ const SHARED_MODULES = [
     SHARED_MODULES
   ],
   exports: [FullNamePipe, TittlesDirective, MatTableModule,
-    SHARED_MODULES],
+    SHARED_MODULES, SidebarComponent],
 })
 export class SharedModule { }
