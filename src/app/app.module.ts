@@ -10,7 +10,6 @@ import { UsersModule } from './layouts/dashbord/pages/users/users.module';
 import { CursosModule } from './layouts/dashbord/pages/cursos/cursos.module';
 import { LoadingService } from './core/services/loading.service';
 import { RouterModule } from '@angular/router';
-import { UserDatailComponent } from './layouts/dashboard/pages/users/components/user-datail/user-datail.component';
 import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(esAR);
@@ -19,7 +18,6 @@ registerLocaleData(es);
 @NgModule({
   declarations: [
     AppComponent,
-    UserDatailComponent,
   ],
   imports: [
     BrowserModule,

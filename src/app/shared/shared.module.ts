@@ -14,8 +14,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { RouterModule } from '@angular/router';
 
 const SHARED_MODULES = [
   MatTableModule,
@@ -30,16 +32,19 @@ const SHARED_MODULES = [
   MatProgressSpinnerModule,
   MatOptionModule,
   MatSidenavModule,
-  MatDialogModule
+  MatDialogModule,
+  MatToolbarModule,
+  MatListModule,
+  RouterModule
 ]
 
 @NgModule({
-  declarations: [FullNamePipe, TittlesDirective],
+  declarations: [FullNamePipe, TittlesDirective, SidebarComponent],
   imports: [
     CommonModule,
     SHARED_MODULES
   ],
-  exports: [FullNamePipe,TittlesDirective, MatTableModule,
+  exports: [FullNamePipe, TittlesDirective, MatTableModule,
     SHARED_MODULES],
 })
-export class SharedModule {}
+export class SharedModule { }

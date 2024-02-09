@@ -1,17 +1,16 @@
-import { UserPipe } from './../../../../shared/full-name.pipe';
 import { Component } from '@angular/core';
-/* import { User } from './models'; */
-import { UsersService } from '../../../../core/services/users.service';
-
+import { UsersService } from '../../../../../../core/services/users.service';
+import { UserPipe } from '../../../../../../shared/full-name.pipe';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrl: './users.component.scss',
+  selector: 'app-users-table',
+  templateUrl: './users-table.component.html',
+  styleUrl: './users-table.component.scss'
 })
-export class UsersComponent {
-  mostrarFormulario: boolean = true;
+export class UsersTableComponent {
 
+  mostrarFormulario: boolean = true;
+  displayedColumns: string[] = ['id', 'fullName', 'email', 'role', 'course', 'delete'];
   dataSource: UserPipe[] = [
     {
       id: 1,
