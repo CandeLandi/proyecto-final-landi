@@ -1,6 +1,10 @@
+import { UsersService } from '../../users.service';
 
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from '../../models';
+import { DialogRef } from '@angular/cdk/dialog';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -8,29 +12,51 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.scss',
 })
-export class UserFormComponent {
-  userForm: FormGroup;
-//Funcion para enviar datos del hijo al padre, para pushear a la tabla
-  @Output()
-  userSubmitted = new EventEmitter();
+export class UserFormComponent implements OnInit {
+  userForm!: FormGroup;
+  //Funcion para enviar datos del hijo al padre, para pushear a la tabla
+  constructor(
+    private fb: FormBuilder,
+    private userService: UsersService,
+    private dialogRef: DialogRef<UserFormComponent>,
+    private activatedRoute: ActivatedRoute
+  ) {
 
-  constructor(private fb: FormBuilder) {
-    this.userForm = this.fb.group({
-      firstName: this.fb.control('', Validators.required),
-      lastName: this.fb.control('', Validators.required),
-      email: this.fb.control('', Validators.required),
-      password: this.fb.control('', Validators.required),
-      role: this.fb.control('', Validators.required),
-      course: this.fb.control('',Validators.required )
+  }
+
+  get currentUser(): User {
+    const user = this.userForm.value as User;
+    return user;
+  }
+
+  ngOnInit(): void {
+    this.userForm = new FormGroup({
+      "firstName": new FormControl(""),
+      "lastName": new FormControl(""),
+      "email": new FormControl(""),
+      "role": new FormControl(""),
+      "password": new FormControl(""),
     });
   }
-//Funcion para evitar que no se mande el formulario sin haber completado y cuando se envia, con reset, reseteamos los campos
+
+  onSave(): void {
+    this.dialogRef.close(this.userForm.value);
+  }
+  //Funcion para evitar que no se mande el formulario sin haber completado y cuando se envia, con reset, reseteamos los campos
   onSubmit(): void {
-    if (this.userForm.invalid) {
-      this.userForm.markAllAsTouched();
-    } else {
-      this.userSubmitted.emit(this.userForm.value);
-      this.userForm.reset();
+    if (this.userForm.invalid) return;
+
+    if ( this.currentUser.id) {
+      this.userService.updateUser( this.currentUser)
+      .subscribe( user => {
+        // TODO: mostrar snackbar
+      });
+      return;
+
     }
+      this.userService.addUser( this.currentUser )
+      .subscribe( hero => {
+        //TODO: mostrar snackbar y navegar a /users/
+      })
   }
 }

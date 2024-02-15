@@ -1,7 +1,9 @@
 import { UserPipe } from './../../../../shared/full-name.pipe';
 import { Component } from '@angular/core';
 /* import { User } from './models'; */
-import { UsersService } from '../../../../core/services/users.service';
+import { UsersService } from './users.service';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -51,7 +53,9 @@ export class UsersComponent {
     },
   ];
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService,
+    public dialog: MatDialog
+     ) {}
 
   onUserSubmitted(ev: UserPipe): void {
     //Angular material nos pide crear un nuevo array para poder refrescar la datasource de la tabla

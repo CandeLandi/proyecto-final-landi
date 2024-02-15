@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../../../../../core/services/users.service';
+import { UsersService } from '../../users.service';
 import { UserPipe } from '../../../../../../shared/full-name.pipe';
+import { MatDialog } from '@angular/material/dialog';
+import { UserFormComponent } from '../user-form/user-form.component';
 
 @Component({
   selector: 'app-users-table',
@@ -10,7 +12,7 @@ import { UserPipe } from '../../../../../../shared/full-name.pipe';
 export class UsersTableComponent implements OnInit{
 
   mostrarFormulario: boolean = true;
-  displayedColumns: string[] = ['id', 'fullName', 'email', 'role', 'course', 'delete'];
+  displayedColumns: string[] = ['id', 'fullName', 'email', 'course', 'actions'];
   dataSource: UserPipe[] = [
     {
       id: 1,
@@ -50,7 +52,9 @@ export class UsersTableComponent implements OnInit{
     },
   ];
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService,
+    public dialog: MatDialog
+    ) {}
 
   ngOnInit(): void {
     this.getUsers()
@@ -62,6 +66,15 @@ export class UsersTableComponent implements OnInit{
         console.log(response)
       }
     )
+  }
+  onCreate(): void {
+    this.dialog.open(UserFormComponent).afterClosed().subscribe({
+      next: (result) => {
+        if (result) {
+          console.log(result)
+        }
+      }
+    })
   }
 
   onUserSubmitted(ev: UserPipe): void {

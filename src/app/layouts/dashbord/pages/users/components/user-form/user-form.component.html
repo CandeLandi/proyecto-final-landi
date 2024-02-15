@@ -1,41 +1,40 @@
-<div class="form-user" >
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid formgrid">
-        <div >
-          <mat-form-field >
-            <mat-label>Nombre</mat-label>
-            <input formControlName="firstName" matInput type="text" />
-          </mat-form-field>
-        </div>
-        <div >
-          <mat-form-field >
-            <mat-label>Apellido</mat-label>
-            <input formControlName="lastName" matInput type="text" />
-          </mat-form-field>
-        </div>
-        <div >
-          <mat-form-field >
-            <mat-label>Email</mat-label>
-            <input formControlName="email" matInput type="email" />
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field >
-            <mat-label>Contraseña</mat-label>
-            <input formControlName="password" matInput type="password" />
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field>
-            <mat-label>Curso</mat-label>
-            <mat-select formControlName="course">
-              <mat-option value="ANGULAR">ANGULAR</mat-option>
-              <mat-option value="JAVASCRIPT"> JAVASCRIPT </mat-option>
-              <mat-option value="REACT"> REACT </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div>
-          <button mat-flat-button color="primary">Guardar</button>
-        </div>
-      </form>
+<h1 mat-dialog-title> Usuarios</h1>
+<div mat-dialog-content class="form-user">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid formgrid">
+    <div>
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input formControlName="firstName" matInput type="text" required />
+      </mat-form-field>
     </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Apellido</mat-label>
+        <input formControlName="lastName" matInput type="text" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput type="email" required />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input formControlName="password" matInput type="password" required />
+      </mat-form-field>
+    </div>
+    <pre> {{ userForm.value | json }}</pre>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close color="primary">Cancelar</button>
+      <button mat-button color="primary">Guardar</button>
+    </div>
+  </form>
+</div>
+
+<!--     <pre>
+      {{ currentUser | json }}
+    </pre>
+ -->

@@ -2,6 +2,8 @@
 import { Component } from '@angular/core';
 import { CursosService } from '../../../../../../core/services/cursos.service';
 import { Curso } from '../../models';
+import { MatDialog } from '@angular/material/dialog';
+import { FormCursosComponent } from '../form-cursos/form-cursos.component';
 
 @Component({
   selector: 'app-table-cursos',
@@ -14,13 +16,19 @@ export class TableCursosComponent {
   cursos!: Curso[]
   datasource: Curso[] = []
 
-  constructor(private cursosService: CursosService) {
+  constructor(private cursosService: CursosService,
+    public dialog: MatDialog
+    ) {
     this.cursosService.getCursos().subscribe({
       next: (cursos) => {
         this.cursos = cursos;
       }
     })
   }
+  onCreate(): void {
+    this.dialog.open(FormCursosComponent)
+  }
+
   onUserSubmitted(ev: Curso): void {
     //Angular material nos pide crear un nuevo array para poder refrescar la datasource de la tabla
     this.cursos = [...this.cursos, { ...ev, id: new Date().getTime() }];

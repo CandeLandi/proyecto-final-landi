@@ -1,12 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
-import { MY_USER_TOKEN } from '../../core/injection-tokens/index';
-import { User } from '../../layouts/dashbord/pages/users/models/index';
+import { MY_USER_TOKEN } from '../../../../core/injection-tokens/index';
+import { User } from './models/index';
 import { Observable, catchError, delay, map, mergeMap, of, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const ROLES_DB: string[] = ['ADMIN', 'USER'];
-
-let USERS_DB: User[] = [];
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +32,6 @@ export class UsersService {
   }
 
   deleteUserbyId(id: string): Observable<boolean> {
-
     return this.http.delete(`${this.baseUrl} ${id}`)
       .pipe(
         catchError(err => of(false)),
