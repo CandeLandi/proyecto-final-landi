@@ -15,6 +15,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class UserFormComponent implements OnInit {
   userForm!: FormGroup;
+
+  isLoading!: boolean;
   //Funcion para enviar datos del hijo al padre, para pushear a la tabla
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -51,17 +53,18 @@ export class UserFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.userForm.invalid) return;
-
+    this.isLoading = true
     if (this.data.user) {
       this.userService.updateUser(this.currentUser)
         .subscribe(user => {
+          this.isLoading = false
           this.dialogRef.close();
         });
       return;
     } else {
       this.userService.addUser(this.currentUser)
         .subscribe(response => {
-          console.log(response)
+          this.isLoading = false
           this.dialogRef.close();
         })
     }

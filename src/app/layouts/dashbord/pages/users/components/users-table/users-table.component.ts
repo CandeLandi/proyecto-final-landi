@@ -10,7 +10,7 @@ import { UserFormComponent } from '../user-form/user-form.component';
   styleUrl: './users-table.component.scss'
 })
 export class UsersTableComponent implements OnInit {
-
+  isLoading!: boolean;
   mostrarFormulario: boolean = true;
   displayedColumns: string[] = ['id', 'fullName', 'email', 'course', 'actions'];
   dataSource: UserPipe[] = [];
@@ -24,14 +24,17 @@ export class UsersTableComponent implements OnInit {
   }
 
   getUsers() {
+    this.isLoading = true;
     this.usersService.getUsers().subscribe(
       (response: any) => {
         this.dataSource = response;
+        this.isLoading = false;
       }
     )
   }
 
   onCreate(): void {
+    this.isLoading = true;
     this.dialog.open(UserFormComponent).afterClosed().subscribe({
       next: (result) => {
         this.getUsers()
@@ -52,8 +55,9 @@ export class UsersTableComponent implements OnInit {
   }
 
   deleteUser(id: any): void {
+    this.isLoading = true;
     this.usersService.deleteUserbyId(id).subscribe(
-      (response)=>{
+      (response) => {               
         this.getUsers()
       }
     )
