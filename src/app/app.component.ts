@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { LoadingService } from './core/services/loading.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +10,7 @@ export class AppComponent {
 
   isLoading = false;
 
-  constructor(private loadingService: LoadingService) {
-    this.loadingService.isLoading$.subscribe({
-      next: (v) => {
-        setTimeout(() => {
-          this.isLoading = v;
-        });
-      },
-    });
+  constructor() {
+
   }
 }

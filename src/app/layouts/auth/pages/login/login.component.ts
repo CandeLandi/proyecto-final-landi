@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,23 +9,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  //Funcion para enviar datos del hijo al padre, para pushear a la tabla
-  @Output()
-  loginSubmitted = new EventEmitter();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.loginForm = this.fb.group({
       email: this.fb.control('', Validators.required),
       password: this.fb.control('', Validators.required),
     });
   }
+
   //Funcion para evitar que no se mande el formulario sin haber completado y cuando se envia, con reset, reseteamos los campos
   onSubmit(): void {
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
     } else {
-      this.loginSubmitted.emit(this.loginForm.value);
-      this.loginForm.reset();
+      this.authService.login(this.loginForm.value)
     }
   }
 }

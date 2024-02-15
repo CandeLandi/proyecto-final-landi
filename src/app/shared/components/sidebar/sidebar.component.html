@@ -1,35 +1,32 @@
 <mat-drawer-container class="dashboard-container" autosize>
-    <mat-drawer #drawer class="example-sidenav nav-list" mode="side">
-      <mat-nav-list>
-        <a  routerLinkActiverouterLink="home" [routerLink]="['']"
-          mat-list-item>Inicio</a>
-        <a  routerLinkActive  routerLink="users" [routerLink]="['/users']"
-          mat-list-item>Usuarios</a>
-        <a  routerLinkActive routerLink="products"
-          mat-list-item>Cursos</a>
-        <a mat-list-item>Cerrar sesion</a>
-      </mat-nav-list>
-    </mat-drawer>
-  
-    <div class="example-sidenav-content">
-  
-      <mat-toolbar color="primary">
-        <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
-          aria-label="Example icon-button with menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span appTittles></span>
-        <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-          <mat-icon>favorite-icon</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-          <mat-icon></mat-icon>
-        </button>
-      </mat-toolbar>
-      <div>
-       <router-outlet></router-outlet>
-      </div>
+  <mat-drawer #drawer class="example-sidenav nav-list" mode="side">
+    <mat-nav-list>
+      <a routerLinkActiverouterLink="home" [routerLink]="['']" mat-list-item>Inicio</a>
+      <a routerLinkActive [routerLink]="['/users']" mat-list-item>Usuarios</a>
+      <a routerLinkActive [routerLink]="['/cursos']" mat-list-item>Cursos</a>
+      <a mat-list-item (click)="logout()">Cerrar sesion</a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+
+    <mat-toolbar color="primary">
+      <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span appTittles></span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite-icon</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon></mat-icon>
+      </button>
+    </mat-toolbar>
+    <div>
+      <router-outlet></router-outlet>
     </div>
-  
-  </mat-drawer-container>
+  </div>
+
+</mat-drawer-container>

@@ -12,7 +12,7 @@ import { UserFormComponent } from '../user-form/user-form.component';
 export class UsersTableComponent implements OnInit {
   isLoading!: boolean;
   mostrarFormulario: boolean = true;
-  displayedColumns: string[] = ['id', 'fullName', 'email', 'course', 'actions'];
+  displayedColumns: string[] = ['id', 'fullName', 'email', 'role', 'course', 'actions'];
   dataSource: UserPipe[] = [];
 
   constructor(private usersService: UsersService,
@@ -57,7 +57,7 @@ export class UsersTableComponent implements OnInit {
   deleteUser(id: any): void {
     this.isLoading = true;
     this.usersService.deleteUserbyId(id).subscribe(
-      (response) => {               
+      (response) => {
         this.getUsers()
       }
     )

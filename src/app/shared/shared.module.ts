@@ -18,7 +18,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
 
 const SHARED_MODULES = [
   MatTableModule,
@@ -38,7 +39,9 @@ const SHARED_MODULES = [
   MatListModule,
   RouterModule,
   CommonModule,
-  FormsModule
+  FormsModule,
+  MatSelectModule,
+  MatSnackBarModule
 ]
 
 @NgModule({

@@ -19,7 +19,13 @@
         <input formControlName="email" matInput type="email" required />
       </mat-form-field>
     </div>
-
+    <mat-form-field>
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option value="admin">Admin</mat-option>
+        <mat-option value="user">User</mat-option>
+      </mat-select>
+    </mat-form-field>
     <div>
       <mat-form-field>
         <mat-label>Contraseña</mat-label>

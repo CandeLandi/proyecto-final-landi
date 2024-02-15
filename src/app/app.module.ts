@@ -7,7 +7,6 @@ import es from '@angular/common/locales/es';
 import esAR from '@angular/common/locales/es-AR';
 import { UsersModule } from './layouts/dashbord/pages/users/users.module';
 import { CursosModule } from './layouts/dashbord/pages/cursos/cursos.module';
-import { LoadingService } from './core/services/loading.service';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -40,7 +39,6 @@ registerLocaleData(es);
       provide: LOCALE_ID,
       useValue: 'es-AR',
     },
-    LoadingService
   ],
   bootstrap: [AppComponent]
 })

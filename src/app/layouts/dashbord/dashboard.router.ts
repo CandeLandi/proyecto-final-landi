@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './pages/users/users.component';
 import { CursosComponent } from './pages/cursos/cursos.component';
 import { LoginComponent } from '../auth/pages/login/login.component';
+import { authGuard } from '../../core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,12 +16,14 @@ const routes: Routes = [
   {
     path: 'cursos',
     component: CursosComponent,
+    canActivate: [authGuard],
     loadChildren: () =>
       import('./pages/cursos/cursos.module').then((m) => m.CursosModule)
   },
   {
     path: 'users',
     component: UsersComponent,
+    canActivate: [authGuard],
     loadChildren: () =>
       import('./pages/users/users.module').then((m) => m.UsersModule)
   }
