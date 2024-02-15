@@ -19,7 +19,6 @@ import { MatListModule } from '@angular/material/list';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from '../app-routing.module';
 
 const SHARED_MODULES = [
   MatTableModule,
@@ -38,15 +37,11 @@ const SHARED_MODULES = [
   MatToolbarModule,
   MatListModule,
   RouterModule,
-  BrowserAnimationsModule,
-  AppRoutingModule
-
 ]
 
 @NgModule({
   declarations: [FullNamePipe, TittlesDirective, SidebarComponent],
   imports: [
-    CommonModule,
     SHARED_MODULES
   ],
   exports: [FullNamePipe, TittlesDirective, MatTableModule,

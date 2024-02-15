@@ -1,7 +1,5 @@
 import { Curso } from './models/index';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { CursosRoutingModule } from './cursos-routing.module';
 import { CursosComponent } from './cursos.component';
 import { MatTableModule } from '@angular/material/table';
@@ -12,6 +10,7 @@ import { FormCursosComponent } from './components/form-cursos/form-cursos.compon
 import { TableCursosComponent } from './components/table-cursos/table-cursos.component';
 
 
+
 @NgModule({
   declarations: [
     CursosComponent,
@@ -19,11 +18,10 @@ import { TableCursosComponent } from './components/table-cursos/table-cursos.com
     TableCursosComponent,
   ],
   imports: [
-    CommonModule,
     CursosRoutingModule,
     MatTableModule,
     PipesModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
     CursosComponent,

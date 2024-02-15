@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-
-import { CommonModule } from '@angular/common';
 import { UsersModule } from './pages/users/users.module';
 import { PipesModule } from './pages/pipes/pipes.module';
 import { SharedModule } from '../../shared/shared.module';
@@ -14,7 +12,6 @@ import { DashboardComponent } from './dashboard.component';
     DashboardComponent,
   ],
   imports: [
-    CommonModule,
     UsersModule,
     PipesModule,
     SharedModule,

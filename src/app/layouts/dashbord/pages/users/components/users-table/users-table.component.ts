@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../../../../../core/services/users.service';
 import { UserPipe } from '../../../../../../shared/full-name.pipe';
 
@@ -7,7 +7,7 @@ import { UserPipe } from '../../../../../../shared/full-name.pipe';
   templateUrl: './users-table.component.html',
   styleUrl: './users-table.component.scss'
 })
-export class UsersTableComponent {
+export class UsersTableComponent implements OnInit{
 
   mostrarFormulario: boolean = true;
   displayedColumns: string[] = ['id', 'fullName', 'email', 'role', 'course', 'delete'];
@@ -51,6 +51,18 @@ export class UsersTableComponent {
   ];
 
   constructor(private usersService: UsersService) {}
+
+  ngOnInit(): void {
+    this.getUsers()
+  }
+
+  getUsers(){
+    this.usersService.getUsers().subscribe(
+      (response) => {
+        console.log(response)
+      }
+    )
+  }
 
   onUserSubmitted(ev: UserPipe): void {
     //Angular material nos pide crear un nuevo array para poder refrescar la datasource de la tabla
