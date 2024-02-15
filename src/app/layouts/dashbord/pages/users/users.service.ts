@@ -23,24 +23,16 @@ export class UsersService {
   }
 
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.baseUrl}/users`, user)
+    return this.http.post<User>(`${this.baseUrl}`, user)
   }
 
   updateUser(user: User): Observable<User> {
     if (!user.id) throw Error('User is required');
-    return this.http.patch<User>(`${this.baseUrl}/${user.id}`, user)
+    return this.http.put<User>(`${this.baseUrl}/${user.id}`, user)
   }
 
-  deleteUserbyId(id: string): Observable<boolean> {
-    return this.http.delete(`${this.baseUrl} ${id}`)
-      .pipe(
-        catchError(err => of(false)),
-        map(resp => true)
-      );
+  deleteUserbyId(id: string) {
+    return this.http.delete(`${this.baseUrl}/${id}`)
   }
-
-
-
-
 
 }

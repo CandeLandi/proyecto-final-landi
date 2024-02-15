@@ -1,10 +1,11 @@
 import { UsersService } from '../../users.service';
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../models';
 import { DialogRef } from '@angular/cdk/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 @Component({
@@ -16,13 +17,12 @@ export class UserFormComponent implements OnInit {
   userForm!: FormGroup;
   //Funcion para enviar datos del hijo al padre, para pushear a la tabla
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
     private userService: UsersService,
     private dialogRef: DialogRef<UserFormComponent>,
     private activatedRoute: ActivatedRoute
-  ) {
-
-  }
+  ) { }
 
   get currentUser(): User {
     const user = this.userForm.value as User;
@@ -36,27 +36,34 @@ export class UserFormComponent implements OnInit {
       "email": new FormControl(""),
       "role": new FormControl(""),
       "password": new FormControl(""),
+      "id": new FormControl(""),
     });
+
+    if (this.data.user) {
+      this.userForm.get('firstName')?.setValue(this.data.user.firstName)
+      this.userForm.get('lastName')?.setValue(this.data.user.lastName)
+      this.userForm.get('email')?.setValue(this.data.user.email)
+      this.userForm.get('role')?.setValue(this.data.user.role)
+      this.userForm.get('password')?.setValue(this.data.user.password)
+      this.userForm.get('id')?.setValue(this.data.user.id)
+    }
   }
 
-  onSave(): void {
-    this.dialogRef.close(this.userForm.value);
-  }
-  //Funcion para evitar que no se mande el formulario sin haber completado y cuando se envia, con reset, reseteamos los campos
   onSubmit(): void {
     if (this.userForm.invalid) return;
 
-    if ( this.currentUser.id) {
-      this.userService.updateUser( this.currentUser)
-      .subscribe( user => {
-        // TODO: mostrar snackbar
-      });
+    if (this.data.user) {
+      this.userService.updateUser(this.currentUser)
+        .subscribe(user => {
+          this.dialogRef.close();
+        });
       return;
-
+    } else {
+      this.userService.addUser(this.currentUser)
+        .subscribe(response => {
+          console.log(response)
+          this.dialogRef.close();
+        })
     }
-      this.userService.addUser( this.currentUser )
-      .subscribe( hero => {
-        //TODO: mostrar snackbar y navegar a /users/
-      })
   }
 }
