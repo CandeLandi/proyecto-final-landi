@@ -1,9 +1,9 @@
 
 import { Component } from '@angular/core';
-import { CursosService } from '../../../../../../core/services/cursos.service';
 import { Curso } from '../../models';
 import { MatDialog } from '@angular/material/dialog';
 import { FormCursosComponent } from '../form-cursos/form-cursos.component';
+import { CursosService } from '../../cursos.service';
 
 @Component({
   selector: 'app-table-cursos',
@@ -20,7 +20,7 @@ export class TableCursosComponent {
     public dialog: MatDialog
     ) {
     this.cursosService.getCursos().subscribe({
-      next: (cursos) => {
+      next: (cursos:any ) => {
         this.cursos = cursos;
       }
     })

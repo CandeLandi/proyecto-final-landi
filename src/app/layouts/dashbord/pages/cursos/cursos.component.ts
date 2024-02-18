@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CursosService } from '../../../../core/services/cursos.service';
+import { CursosService } from './cursos.service';
 import { Curso } from './models';
 
 @Component({
@@ -9,5 +9,5 @@ import { Curso } from './models';
 })
 export class CursosComponent {
 
- 
+
 };
