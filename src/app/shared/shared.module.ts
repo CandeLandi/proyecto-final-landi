@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatOptionModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
@@ -41,7 +41,8 @@ const SHARED_MODULES = [
   CommonModule,
   FormsModule,
   MatSelectModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatNativeDateModule
 ]
 
 @NgModule({

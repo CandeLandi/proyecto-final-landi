@@ -3,17 +3,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 
-interface LoginData {
+export interface LoginData {
   email: null | string;
   password: null | string;
 }
 
-const MOCK_USER = {
+export const MOCK_USER = {
   id: 48,
-  email: 'a@a.com',
-  firstName: 'FAKENAME',
-  lastName: 'FAKELASTNAME',
-  password: '123456',
+  email: 'admin@a.com',
+  password: '12345',
   role: 'ADMIN',
 };
 
@@ -33,7 +31,7 @@ export class AuthService {
     if (data.email === MOCK_USER.email && data.password === MOCK_USER.password) {
       console.log(2)
       localStorage.setItem("user", JSON.stringify(data))
-      this.router.navigate(['cursos']);
+      this.router.navigate(['/cursos']);
     }
     else {
       this.openSnackBar('Datos incorrectos', 'Aceptar')

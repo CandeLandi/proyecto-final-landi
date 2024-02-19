@@ -1,20 +1,24 @@
 <div class="form-cursos">
     <form [formGroup]="addCursosForm" (ngSubmit)="onSubmit()" class="grid formgrid">
-        <div>
+      <div>
             <mat-form-field >
                 <mat-label>Nombre del curso</mat-label>
                 <input formControlName="courseName" matInput type="text" />
             </mat-form-field>
         </div>
         <div>
-            <mat-form-field >
-                <mat-label>Fecha de inicio</mat-label>
-                <input formControlName="createdAt" matInput type="text" />
-            </mat-form-field>
+          <mat-form-field>
+            <mat-label>Fecha de inicio</mat-label>
+            <input formControlName="createdAt" matInput [matDatepicker]="picker">
+            <mat-hint></mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
         </div>
         <div class="button-container">
-        <button mat-flat-button color="primary">Agregar</button>
+        <button mat-flat-button color="primary">Guardar</button>
         <button mat-button mat-dialog-close color="primary">Cancelar</button>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
         </div>
     </form>
 </div>

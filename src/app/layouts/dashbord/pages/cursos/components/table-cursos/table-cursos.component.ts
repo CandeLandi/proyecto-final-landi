@@ -11,30 +11,57 @@ import { CursosService } from '../../cursos.service';
   styleUrl: './table-cursos.component.scss'
 })
 export class TableCursosComponent {
-
+  isLoading!: boolean;
+  mostrarFormulario: boolean = true;
   displayedColumns = ['id', 'courseName', 'createdAt', 'actions']
-  cursos!: Curso[]
   datasource: Curso[] = []
+
 
   constructor(private cursosService: CursosService,
     public dialog: MatDialog
-    ) {
-    this.cursosService.getCursos().subscribe({
-      next: (cursos:any ) => {
-        this.cursos = cursos;
-      }
-    })
-  }
-  onCreate(): void {
-    this.dialog.open(FormCursosComponent)
-  }
+    ) { }
 
-  onUserSubmitted(ev: Curso): void {
-    //Angular material nos pide crear un nuevo array para poder refrescar la datasource de la tabla
-    this.cursos = [...this.cursos, { ...ev, id: new Date().getTime() }];
-  }
-  deleteUser(id: number): void {
-    // Filtrar el usuario con el id proporcionado
-    this.cursos = this.cursos.filter(curso => curso.id !== id);
-  }
+    ngOnInit(): void {
+       this.getCursos()
+    }
+
+    getCursos() {
+      this.isLoading = true;
+      this.cursosService.getCursos().subscribe(
+        (response: any) => {
+          this.datasource = response;
+          this.isLoading = false;
+        }
+      )
+    }
+
+    onCreate(): void {
+      this.isLoading = true;
+      this.dialog.open(FormCursosComponent).afterClosed().subscribe({
+        next: (result) => {
+          this.getCursos()
+        }
+      })
+    }
+
+    editCurso(curso: any): void {
+      let dialogRef = this.dialog.open(FormCursosComponent, {
+        data: { curso },
+      });
+
+      dialogRef.afterClosed().subscribe({
+        next: (result) => {
+          this.getCursos()
+        }
+      })
+    }
+
+    deleteCursoById(id: any): void {
+      this.isLoading = true;
+      this.cursosService.deleteCursobyId(id).subscribe(
+        (response) => {
+          this.getCursos()
+        }
+      )
+    }
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CursosRoutingModule } from './cursos-routing.module';
 import { CursosComponent } from './cursos.component';
 import { MatTableModule } from '@angular/material/table';
-import { CursosService } from './cursos.service';
+
 import { PipesModule } from '../pipes/pipes.module';
 import { SharedModule } from '../../../../shared/shared.module';
 import { FormCursosComponent } from './components/form-cursos/form-cursos.component';
@@ -22,8 +22,7 @@ import { TableCursosComponent } from './components/table-cursos/table-cursos.com
     PipesModule,
     SharedModule,
   ],
-  exports: [
-    CursosComponent,
-  ],
+
+
 })
 export class CursosModule { }

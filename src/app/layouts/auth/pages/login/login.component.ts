@@ -17,7 +17,6 @@ export class LoginComponent {
     });
   }
 
-  //Funcion para evitar que no se mande el formulario sin haber completado y cuando se envia, con reset, reseteamos los campos
   onSubmit(): void {
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();

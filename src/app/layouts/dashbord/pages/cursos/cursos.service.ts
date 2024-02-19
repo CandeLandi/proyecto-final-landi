@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
-import { Curso } from "./models";
 import { Observable, delay, of } from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import { Curso } from './models/index';
 
-Injectable()
+@Injectable({ providedIn: 'root' })
 export class CursosService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+  ) { }
 
   baseUrl = "https://65ccfa26dd519126b83fe862.mockapi.io/api/courses";
 
@@ -14,20 +16,20 @@ export class CursosService {
     return this.http.get(`${this.baseUrl}`)
   }
 
-  getUser(curso_id: any) {
+  getCurso(curso_id: any) {
     return this.http.get(`${this.baseUrl}/${curso_id}`)
   }
 
-  addUser(course: Curso): Observable<Curso> {
-    return this.http.post<Curso>(`${this.baseUrl}`, course)
+  addCurso(curso: Curso): Observable<Curso> {
+    return this.http.post<Curso>(`${this.baseUrl}`, curso)
   }
 
-  updateUser(curso: Curso): Observable<Curso> {
-    if (!curso.id) throw Error('is required');
-    return this.http.put<Curso>(`${this.baseUrl}/${curso.id}`, curso)
+  updateCurso(curso_id:number, curso: Curso): Observable<Curso> {
+    console.log(curso);
+    return this.http.put<Curso>(`${this.baseUrl}/${curso_id}`, curso)
   }
 
-  deleteUserbyId(id: string) {
+  deleteCursobyId(id: string) {
     return this.http.delete(`${this.baseUrl}/${id}`)
   }
 

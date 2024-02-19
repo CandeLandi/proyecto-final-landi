@@ -20,6 +20,6 @@ import { DashboardComponent } from './dashboard.component';
     DashboardRoutingModule
   ],
   exports: [
-  ]
+  ],
 })
 export class DashboardModule { }

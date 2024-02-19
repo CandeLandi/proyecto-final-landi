@@ -1,30 +1,31 @@
-<div>
+<div class="table-container">
+  <div>
     <button (click)="onCreate()" mat-button color="primary"> Agregar </button>
 </div>
-<table mat-table [dataSource]="cursos">
+<table *ngIf="!isLoading" mat-table [dataSource]="datasource" >
 
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Comision </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <td mat-cell *matCellDef="let curso"> {{curso.id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="courseName">
         <th mat-header-cell *matHeaderCellDef> Curso </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <td mat-cell *matCellDef="let curso"> {{curso.courseName}} </td>
     </ng-container>
 
     <ng-container matColumnDef="createdAt">
         <th mat-header-cell *matHeaderCellDef> Fecha de inicio </th>
-        <td mat-cell *matCellDef="let element"> {{element.createdAt | date: 'dd/MM/YYYY hh:mm'}} </td>
+        <td mat-cell *matCellDef="let curso"> {{curso.createdAt | date: 'dd/MM/YYYY hh:mm'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let element">
-            <button color="primary" mat-icon-button>
+        <td mat-cell *matCellDef="let curso">
+            <button color="primary" mat-icon-button (click)="editCurso(curso)">
                 <mat-icon> edit </mat-icon>
             </button>
-            <button color="warn" mat-icon-button>
+            <button color="warn" mat-icon-button (click)="deleteCursoById(curso.id)">
                 <mat-icon> delete </mat-icon>
             </button>
         </td>
@@ -33,3 +34,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+</div>
+
+<div class="loading-container">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+</div>

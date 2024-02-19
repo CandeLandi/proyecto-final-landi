@@ -1,7 +1,11 @@
 
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CursosService } from '../../cursos.service';
+import { ActivatedRoute } from '@angular/router';
+import { Curso } from '../../models';
+import { DialogRef } from '@angular/cdk/dialog';
 
 
 @Component({
@@ -10,32 +14,52 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './form-cursos.component.scss'
 })
 export class FormCursosComponent {
-  addCursosForm: FormGroup;
+  addCursosForm!: FormGroup;
+
+  isLoading!: boolean;
   //Funcion para enviar datos del hijo al padre, para pushear a la tabla
-  @Output()
-  addCursosSubmitted = new EventEmitter();
-  mostrarFormulario: boolean = true;
-  constructor(private fb: FormBuilder) {
-    this.addCursosForm = this.fb.group({
-      courseName: this.fb.control('', Validators.required),
-      createdAt: this.fb.control('', Validators.required),
-    });
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private fb: FormBuilder,
+    private cursosService: CursosService,
+    private dialogRef: DialogRef<FormCursosComponent>,
+    private activatedRoute: ActivatedRoute
+  ) { }
+//Funcion para evitar que no se mande el formulario sin haber completado y cuando se envia, con reset, reseteamos los campos
+get currentCurso(): Curso {
+  const curso = this.addCursosForm.value as Curso;
+  return curso;
+}
+
+ngOnInit(): void {
+  this.addCursosForm = new FormGroup({
+    "courseName": new FormControl(""),
+    "createdAt": new FormControl(""),
+  });
+
+  if (this.data.curso) {
+    this.addCursosForm.get('courseName')?.setValue(this.data.curso.courseName)
+    this.addCursosForm.get('createdAt')?.setValue(this.data.curso.createdAt)
   }
-  //Funcion para evitar que no se mande el formulario sin haber completado y cuando se envia, con reset, reseteamos los campos
-  onSubmit(): void {
-    if (this.addCursosForm.invalid) {
-      this.addCursosForm.markAllAsTouched();
-    } else {
-      this.addCursosSubmitted.emit(this.addCursosForm.value);
-      this.addCursosForm.reset();
+}
+
+onSubmit(): void {
+  if (this.addCursosForm.invalid) return;
+  this.isLoading = true
+  if (this.data.curso) {
+    this.cursosService.updateCurso(this.data.curso.id, this.currentCurso)
+      .subscribe(curso => {
+        this.isLoading = false
+        this.dialogRef.close();
+      });
+    return;
+  } else {
+    this.cursosService.addCurso(this.currentCurso)
+      .subscribe(response => {
+        this.isLoading = false
+        this.dialogRef.close();
+      })
     }
   }
-
-
-
-/*   onCourseSubmitted(ev: CursosService): void {
-    //Angular material nos pide crear un nuevo array para poder refrescar la datasource de la tabla
-    this.Curso = [...this.Curso, { ...ev, id: new Date().getTime() }];
-    this.mostrarFormulario = false;
-  } */
 }
+

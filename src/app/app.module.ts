@@ -34,12 +34,6 @@ registerLocaleData(es);
     PipesModule,
     DatePipe,
   ],
-  providers: [
-    {
-      provide: LOCALE_ID,
-      useValue: 'es-AR',
-    },
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

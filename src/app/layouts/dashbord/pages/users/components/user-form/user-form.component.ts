@@ -1,5 +1,4 @@
 import { UsersService } from '../../users.service';
-
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../models';

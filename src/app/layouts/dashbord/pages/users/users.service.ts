@@ -1,7 +1,7 @@
-import { Inject, Injectable } from '@angular/core';
+import {  Injectable } from '@angular/core';
 import { User } from './models/index';
-import { Observable, catchError, delay, map, mergeMap, of, tap } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
