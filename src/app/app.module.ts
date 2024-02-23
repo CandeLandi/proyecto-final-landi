@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PipesModule } from './layouts/dashbord/pages/pipes/pipes.module';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 registerLocaleData(esAR);
 registerLocaleData(es);
@@ -33,6 +36,13 @@ registerLocaleData(es);
     BrowserAnimationsModule,
     PipesModule,
     DatePipe,
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      name: 'art-office',
+      maxAge: 25,
+      /* logOnly: environment.production, */
+    })
   ],
   bootstrap: [AppComponent]
 })

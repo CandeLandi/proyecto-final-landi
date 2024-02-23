@@ -2,8 +2,9 @@
   <mat-drawer #drawer class="example-sidenav nav-list" mode="side">
     <mat-nav-list>
       <a routerLinkActiverouterLink="home" [routerLink]="['']" mat-list-item>Inicio</a>
-      <a routerLinkActive [routerLink]="['/users']" mat-list-item>Usuarios</a>
       <a routerLinkActive [routerLink]="['/cursos']" mat-list-item>Cursos</a>
+      <a routerLinkActive [routerLink]="['/inscriptions']" mat-list-item>Inscriptions</a>
+      <a routerLinkActive [routerLink]="['/users']" mat-list-item>Usuarios</a>
       <a mat-list-item (click)="logout()">Cerrar sesion</a>
     </mat-nav-list>
   </mat-drawer>

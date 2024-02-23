@@ -5,6 +5,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { CursosComponent } from './pages/cursos/cursos.component';
 import { LoginComponent } from '../auth/pages/login/login.component';
 import { authGuard } from '../../core/guards/auth.guard';
+import { InscriptionsModule } from './pages/inscriptions/inscriptions.module';
 
 const routes: Routes = [
   {
@@ -26,6 +27,12 @@ const routes: Routes = [
     canActivate: [authGuard],
     loadChildren: () =>
       import('./pages/users/users.module').then((m) => m.UsersModule)
+  },
+  {
+    path: 'inscriptions',
+    component: InscriptionsModule,
+    loadChildren: () =>
+    import('./pages/inscriptions/inscriptions.module').then((m) => m.InscriptionsModule)
   }
 ];
 

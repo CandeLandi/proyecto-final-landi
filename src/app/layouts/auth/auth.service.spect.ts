@@ -1,8 +1,6 @@
 import { Router } from '@angular/router';
-import { AuthService } from './auth.service';
-import { MOCK_USER } from './auth.service';
+import { AuthService, MOCK_USER } from './auth.service';
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 describe('Servicio de autenticación', () => {

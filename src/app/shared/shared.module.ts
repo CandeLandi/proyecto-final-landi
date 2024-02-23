@@ -42,7 +42,7 @@ const SHARED_MODULES = [
   FormsModule,
   MatSelectModule,
   MatSnackBarModule,
-  MatNativeDateModule
+  MatNativeDateModule,
 ]
 
 @NgModule({
