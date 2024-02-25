@@ -36,7 +36,6 @@ export class TableCursosComponent {
     }
 
     onCreate(): void {
-      this.isLoading = true;
       this.dialog.open(FormCursosComponent).afterClosed().subscribe({
         next: (result) => {
           this.getCursos()

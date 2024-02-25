@@ -21,7 +21,7 @@ export class CursosService {
   }
 
   addCurso(curso: Curso): Observable<Curso> {
-    return this.http.post<Curso>(`${environment.apiURL}`, curso)
+    return this.http.post<Curso>(`${environment.apiURL}/courses`, curso)
   }
 
   updateCurso(curso_id:number, curso: Curso): Observable<Curso> {
@@ -29,7 +29,7 @@ export class CursosService {
   }
 
   deleteCursobyId(id: string) {
-    return this.http.delete(`${environment.apiURL}/${id}`)
+    return this.http.delete(`${environment.apiURL}/courses/${id}`)
   }
 
 }

@@ -35,7 +35,6 @@ export class UsersTableComponent implements OnInit {
   }
 
   onCreate(): void {
-    this.isLoading = true;
     this.dialog.open(UserFormComponent).afterClosed().subscribe({
       next: (result) => {
         this.getUsers()

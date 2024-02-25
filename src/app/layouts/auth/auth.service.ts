@@ -29,7 +29,6 @@ export class AuthService {
 
   login(data: LoginData) {
     if (data.email === MOCK_USER.email && data.password === MOCK_USER.password) {
-      console.log(2)
       localStorage.setItem("user", JSON.stringify(data))
       this.router.navigate(['/cursos']);
     }

@@ -1,8 +1,8 @@
 <div class="table-container">
   <div>
-    <button (click)="onCreate()" mat-button color="primary"> Agregar </button>
+    <button (click)="onCreate()"mat-raised-button color="basic"> Agregar </button>
 </div>
-<table *ngIf="!isLoading" mat-table [dataSource]="datasource" >
+<table *ngIf="!isLoading" mat-table [dataSource]="datasource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Comision </th>
