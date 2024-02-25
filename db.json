@@ -1,14 +1,70 @@
 {
-    "inscriptions": [
-        {
-            "id": 1,
-            "userId": "2",
-            "courseId": "4"
-        },
-        {
-            "id": 2,
-            "userId": "3",
-            "courseId": "2"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Marcela",
+      "lastName": "Lopez",
+      "createdAt": 1708540202,
+      "email": "mar@hotmail.com",
+      "role": "ADMIN",
+      "password": "password1"
+    },
+    {
+      "id": "2",
+      "firstName": "Roberto",
+      "lastName": "Miras",
+      "createdAt": 1428584202,
+      "email": "admin@hotmail.com",
+      "role": "ADMIN",
+      "password": "password2"
+    },
+    {
+      "id": "3",
+      "firstName": "Gisela",
+      "lastName": "Martinez",
+      "createdAt": 1708540202,
+      "email": "gi@hotmail.com",
+      "role": "ADMIN",
+      "password": "password3"
+    }
+  ],
+  "courses": [
+    {
+      "createdAt": "2024-02-20T06:00:00.000Z",
+      "courseName": "Angular",
+      "id": "1"
+    },
+    {
+      "createdAt": "2024-02-21T06:00:00.000Z",
+      "courseName": "Java",
+      "id": "2"
+    },
+    {
+      "createdAt": "2024-02-20T06:00:00.000Z",
+      "courseName": "TypeScript",
+      "id": "3"
+    },
+    {
+      "createdAt": "2024-02-23T06:00:00.000Z",
+      "courseName": "React",
+      "id": "4"
+    },
+    {
+      "createdAt": "2024-06-12T06:00:00.000Z",
+      "courseName": "Reac Native ",
+      "id": "5"
+    }
+  ],
+  "inscriptions": [
+    {
+      "id": "1",
+      "userId": "2",
+      "courseId": "4"
+    },
+    {
+      "id": "2",
+      "userId": "3",
+      "courseId": "2"
+    }
+  ]
 }

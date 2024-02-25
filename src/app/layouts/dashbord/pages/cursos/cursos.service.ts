@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable, delay, of } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Curso } from './models/index';
+import { environment } from "../../../../../../environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class CursosService {
@@ -10,27 +11,25 @@ export class CursosService {
     private http: HttpClient,
   ) { }
 
-  baseUrl = "https://65ccfa26dd519126b83fe862.mockapi.io/api/courses";
 
   getCursos() {
-    return this.http.get(`${this.baseUrl}`)
+    return this.http.get(`${environment.apiURL}/courses`)
   }
 
   getCurso(curso_id: any) {
-    return this.http.get(`${this.baseUrl}/${curso_id}`)
+    return this.http.get(`${environment.apiURL}/${curso_id}`)
   }
 
   addCurso(curso: Curso): Observable<Curso> {
-    return this.http.post<Curso>(`${this.baseUrl}`, curso)
+    return this.http.post<Curso>(`${environment.apiURL}`, curso)
   }
 
   updateCurso(curso_id:number, curso: Curso): Observable<Curso> {
-    console.log(curso);
-    return this.http.put<Curso>(`${this.baseUrl}/${curso_id}`, curso)
+    return this.http.patch<Curso>(`${environment.apiURL}/${curso_id}`, curso)
   }
 
   deleteCursobyId(id: string) {
-    return this.http.delete(`${this.baseUrl}/${id}`)
+    return this.http.delete(`${environment.apiURL}/${id}`)
   }
 
 }

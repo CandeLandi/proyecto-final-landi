@@ -3,6 +3,7 @@ import { UsersService } from '../../users.service';
 import { UserPipe } from '../../../../../../shared/full-name.pipe';
 import { MatDialog } from '@angular/material/dialog';
 import { UserFormComponent } from '../user-form/user-form.component';
+import { UserDetailComponent } from '../user-detail/user-detail.component';
 
 @Component({
   selector: 'app-users-table',
@@ -62,5 +63,11 @@ export class UsersTableComponent implements OnInit {
       }
     )
   }
+
+  openUserDetail(user: any): void {
+    let dialogRef = this.dialog.open(UserDetailComponent, {
+      data: { user },
+    });
+}
 }
 
