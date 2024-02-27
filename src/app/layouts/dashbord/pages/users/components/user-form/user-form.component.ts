@@ -25,11 +25,6 @@ export class UserFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) { }
 
-  get currentUser(): User {
-    const user = this.userForm.value as User;
-    return user;
-    console.log(user);
-  }
 
   ngOnInit(): void {
     this.userForm = new FormGroup({
@@ -51,6 +46,11 @@ export class UserFormComponent implements OnInit {
     }
   }
 
+  get currentUser(): User {
+    const user = this.userForm.value as User;
+    return user;
+    console.log(user);
+  }
   onSubmit(): void {
     if (this.userForm.invalid) return;
     this.isLoading = true

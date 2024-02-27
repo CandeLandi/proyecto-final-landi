@@ -12,13 +12,13 @@ export class InscriptionsService {
 
   constructor( private http: HttpClient) {
   }
-  getSales() {
+  getInscriptions() {
     return this.http.get<Inscription[]>(
       `${environment.apiURL}/sales?_embed=user&_embed=product`
     );
   }
 
-  getSalesById(userId: string | number) {
+  getInscriptionsById(userId: string | number) {
     return this.http.get<User>(`${environment.apiURL}/users/${userId}`).pipe(
       concatMap((user) =>
         this.http.get(`${environment.apiURL}/sales?userId=${user.id}`)
@@ -30,7 +30,7 @@ export class InscriptionsService {
     );
   }
 
-  createSale(data: CreateInscriptionData) {
+  createInscription(data: CreateInscriptionData) {
     return this.http.post<Inscription>(`${environment.apiURL}/sales`, data);
   }
 }

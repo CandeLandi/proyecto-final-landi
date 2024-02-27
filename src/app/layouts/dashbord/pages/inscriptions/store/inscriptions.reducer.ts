@@ -13,9 +13,9 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(InscriptionsActions.loadInscriptionss, state => state),
-  on(InscriptionsActions.loadInscriptionssSuccess, (state, action) => state),
-  on(InscriptionsActions.loadInscriptionssFailure, (state, action) => state),
+  on(InscriptionsActions.loadInscriptions, state => state),
+  on(InscriptionsActions.loadInscriptionsSuccess, (state, action) => state),
+  on(InscriptionsActions.loadInscriptionsFailure, (state, action) => state),
 );
 
 export const inscriptionsFeature = createFeature({
