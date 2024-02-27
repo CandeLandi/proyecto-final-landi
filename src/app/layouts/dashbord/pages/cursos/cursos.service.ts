@@ -25,7 +25,7 @@ export class CursosService {
   }
 
   updateCurso(curso_id:number, curso: Curso): Observable<Curso> {
-    return this.http.patch<Curso>(`${environment.apiURL}/${curso_id}`, curso)
+    return this.http.patch<Curso>(`${environment.apiURL}/courses/${curso_id}`, curso)
   }
 
   deleteCursobyId(id: string) {

@@ -10,6 +10,7 @@ import { UsersComponent } from './users.component';
         path: '',
         component: UsersComponent,
       },
+
     ]),
   ],
   exports: [RouterModule],

@@ -28,6 +28,7 @@ export class UserFormComponent implements OnInit {
   get currentUser(): User {
     const user = this.userForm.value as User;
     return user;
+    console.log(user);
   }
 
   ngOnInit(): void {

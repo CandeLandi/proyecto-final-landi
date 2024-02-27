@@ -1,6 +1,5 @@
 .users-page-container {
     min-height: 100vh;
-    width: 100vh;
     padding: 20px;
 
     .users-container {
@@ -15,7 +14,6 @@
         }
 
         .table-container {
-            flex-direction: column;
             padding: 20px;
         }
     }
