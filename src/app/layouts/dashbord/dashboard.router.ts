@@ -6,10 +6,11 @@ import { CursosComponent } from './pages/cursos/cursos.component';
 import { LoginComponent } from '../auth/pages/login/login.component';
 import { authGuard } from '../../core/guards/auth.guard';
 import { InscriptionsModule } from './pages/inscriptions/inscriptions.module';
+import { InscriptionsComponent } from './pages/inscriptions/inscriptions.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     component: LoginComponent,
     loadChildren: () =>
       import('../auth/auth.module').then((m) => m.AuthModule)
@@ -30,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'inscriptions',
-    component: InscriptionsModule,
+    component: InscriptionsComponent,
     loadChildren: () =>
     import('./pages/inscriptions/inscriptions.module').then((m) => m.InscriptionsModule)
   }

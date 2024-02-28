@@ -20,6 +20,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { ValidationErrorsPipe } from './validation-errors.pipe';
 
 const SHARED_MODULES = [
   MatTableModule,
@@ -47,11 +48,11 @@ const SHARED_MODULES = [
 ]
 
 @NgModule({
-  declarations: [FullNamePipe, TittlesDirective, SidebarComponent],
+  declarations: [FullNamePipe, TittlesDirective, SidebarComponent, ValidationErrorsPipe],
   imports: [
     SHARED_MODULES
   ],
   exports: [FullNamePipe, TittlesDirective, MatTableModule,
-    SHARED_MODULES, SidebarComponent],
+    SHARED_MODULES, SidebarComponent, ValidationErrorsPipe],
 })
 export class SharedModule { }

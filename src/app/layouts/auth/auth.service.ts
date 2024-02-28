@@ -31,10 +31,12 @@ export class AuthService {
     private loadingService: LoadingService,
     private httpClient: HttpClient) {
   }
+
   private setAuthUser(user: User): void {
     this.store.dispatch(AuthActions.setAuthUser({ user }));
     localStorage.setItem('token', user.token);
   }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 3000
@@ -50,15 +52,16 @@ export class AuthService {
         tap((response) => {
           if (!!response[0]) {
             this.setAuthUser(response[0]);
-            this.router.navigate(['dashboard', 'home']);
+            this.router.navigate(['cursos']);
           } else {
             this.openSnackBar('Datos incorrectos', 'Aceptar')          }
         })
       );
   }
+
   logout(): void {
     this.store.dispatch(AuthActions.logout());
-    this.router.navigate(['auth', 'login']);
+    this.router.navigate(['login']);
     localStorage.removeItem('token');
   }
 

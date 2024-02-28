@@ -41,9 +41,8 @@ registerLocaleData(es);
     StoreDevtoolsModule.instrument({
       name: 'art-office',
       maxAge: 25,
-      /* logOnly: environment.production, */
     })
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

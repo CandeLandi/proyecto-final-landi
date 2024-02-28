@@ -1,0 +1,5 @@
+<div *ngIf="isLoading$ | async; ">
+Cargando...
+</div>
+
+<pre> {{ inscriptions$ | async | json  }}</pre>

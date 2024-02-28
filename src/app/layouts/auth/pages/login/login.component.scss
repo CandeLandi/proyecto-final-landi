@@ -29,3 +29,7 @@ form {
 h2 {
   color: white;
 }
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  width: 350px;
+}

@@ -14,14 +14,14 @@ export class InscriptionsService {
   }
   getInscriptions() {
     return this.http.get<Inscription[]>(
-      `${environment.apiURL}/sales?_embed=user&_embed=product`
+      `${environment.apiURL}/inscriptions?_embed=user&_embed=course`
     );
   }
 
   getInscriptionsById(userId: string | number) {
     return this.http.get<User>(`${environment.apiURL}/users/${userId}`).pipe(
       concatMap((user) =>
-        this.http.get(`${environment.apiURL}/sales?userId=${user.id}`)
+        this.http.get(`${environment.apiURL}/inscriptions?userId=${user.id}`)
       ),
       catchError((error) => {
         alert('Ocurrio un error');
@@ -31,6 +31,6 @@ export class InscriptionsService {
   }
 
   createInscription(data: CreateInscriptionData) {
-    return this.http.post<Inscription>(`${environment.apiURL}/sales`, data);
+    return this.http.post<Inscription>(`${environment.apiURL}/inscriptions`, data);
   }
 }

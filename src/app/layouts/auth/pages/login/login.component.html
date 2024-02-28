@@ -10,6 +10,16 @@
       <mat-form-field>
         <mat-label>Contraseña</mat-label>
         <input formControlName="password" matInput type="password" />
+        <mat-error>
+          {{ loginForm.get("password")?.errors | validationErrors }}
+        </mat-error>
+        <button
+          (click)="revealPassword = !revealPassword"
+          matSuffix
+          mat-icon-button
+        >
+          <mat-icon>visibility</mat-icon>
+        </button>
       </mat-form-field>
     </div>
     <button mat-raised-button color="basic">Ingresar</button>
