@@ -8,8 +8,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from '../../models';
 import { Observable } from 'rxjs/internal/Observable';
 
-
-
 @Component({
   selector: 'app-users-table',
   templateUrl: './users-table.component.html',
@@ -87,7 +85,7 @@ export class UsersTableComponent implements OnInit {
     });
   }
 
-  openUserDetail(user: any): void {
+  openUserDetail(user: User): void {
     let dialogRef = this.dialog.open(UserDetailComponent, {
       data: { user },
     });

@@ -16,3 +16,8 @@ export const selectInscriptionIsLoading = createSelector(
   selectInscriptionsState,
   (state) => state.loading
 )
+
+export const selectInscriptionsSubscribers = createSelector(
+  selectInscriptionsState,
+  (state) => state.subscribers
+)

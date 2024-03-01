@@ -1,3 +1,6 @@
+<div class="add-button-container">
+    <button (click)="onCreate()" mat-raised-button	 color="basic"> Agregar usuario</button>
+</div>
 <table *ngIf="!isLoading" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef></th>
@@ -52,9 +55,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
-<div class="add-button-container">
-    <button (click)="onCreate()" mat-raised-button	 color="basic"> Agregar usuario</button>
-</div>
 <div class="loading-container">
     <mat-spinner *ngIf="isLoading"></mat-spinner>
 </div>

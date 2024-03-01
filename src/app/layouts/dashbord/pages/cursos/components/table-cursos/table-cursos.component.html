@@ -1,3 +1,6 @@
+<div class="add-button-container">
+  <button (click)="onCreate()" mat-raised-button color="basic"> Agregar curso </button>
+</div>
 <div class="table-container">
   <table *ngIf="!isLoading" mat-table [dataSource]="datasource" class="mat-elevation-z8">
 
@@ -31,9 +34,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-</div>
-<div class="add-button-container">
-  <button (click)="onCreate()" mat-raised-button color="basic"> Agregar curso </button>
 </div>
 
 <div class="loading-container">

@@ -9,7 +9,7 @@
     <div>
       <mat-form-field>
         <mat-label>Contraseña</mat-label>
-        <input formControlName="password" matInput type="password" />
+        <input formControlName="password" matInput type="password" [ngClass]="{'input-extent': extent}"/>
         <mat-error>
           {{ loginForm.get("password")?.errors | validationErrors }}
         </mat-error>

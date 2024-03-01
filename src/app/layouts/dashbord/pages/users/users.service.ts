@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { User } from './models/index';
-import { Observable, catchError, mergeMap, of, } from 'rxjs';
+import { Observable, Subscriber, catchError, mergeMap, of, } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../../../environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Inscription } from '../inscriptions/store/models';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +33,9 @@ export class UsersService {
       .onAction();
   }
   getUsers() {
-    const headers = new HttpHeaders();
+/*     const headers = new HttpHeaders();
 
-    headers.append('token', localStorage.getItem('token') || '');
+    headers.append('token', localStorage.getItem('token') || ''); */
 
     return this.http.get<User[]>(`${environment.apiURL}/users`).pipe(
       catchError((error) => {
@@ -43,27 +44,34 @@ export class UsersService {
       })
     )
   }
-
-  getUser(user_id: any) {
-    return this.http.get(`${environment.apiURL}/${user_id}`)
+  ngOnInit(): void {
+    this.getUsers()
   }
 
-  addUser(user: User): Observable<User[]> {
+  getUser(id: number | string): Observable<User | undefined> {
+    return this.http.get<User>(`${environment.apiURL}/users/${id}`);
+  }
+
+  addUser(users: User): Observable<User[]> {
     return this.http
       .post<User>(`${environment.apiURL}/users`, {
-        user,
-        token: this.generateString(10),
+        ...users,
+        token: this.generateString(5),
       })
       .pipe(mergeMap(() => this.getUsers()));
   }
 
   updateUser(user: User): Observable<User> {
     if (!user.id) throw Error('User is required');
-    return this.http.patch<User>(`${environment.apiURL}/users${user.id}`, user)
+    return this.http.patch<User>(`${environment.apiURL}/users/${user.id}`, user)
   }
 
   deleteUserbyId(id: string) {
     return this.http.delete(`${environment.apiURL}/users/${id}`)
+  }
+
+  getAllSubscribers(): Observable<Inscription[]>{
+    return this.http.get<Inscription[]>(`${environment.apiURL}/users?role=SUBSCRIBED`)
   }
 
 }

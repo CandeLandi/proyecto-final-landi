@@ -18,7 +18,17 @@
       "email": "admin@hotmail.com",
       "role": "ADMIN",
       "password": "password2",
-      "token": "12345"
+      "token": "12145"
+    },
+    {
+      "id": "6",
+      "firstName": "Ramiro",
+      "lastName": "Merlo",
+      "createdAt": 1428584202,
+      "email": "rama@hotmail.com",
+      "role": "SUBSCRIBED",
+      "password": "password2",
+      "token": "1415"
     },
     {
       "id": "3",
@@ -26,36 +36,36 @@
       "lastName": "Martinez",
       "createdAt": 1708540202,
       "email": "gi@hotmail.com",
-      "role": "ADMIN",
+      "role": "SUBSCRIBED",
       "password": "password3",
-      "token": "12345"
+      "token": "12455"
     }
   ],
   "courses": [
     {
+      "id": "2",
       "createdAt": 20240221060000,
-      "courseName": "Java",
-      "id": "2"
+      "courseName": "Java"
     },
     {
+      "id": "4",
       "createdAt": "2024-02-23T06:00:00.000Z",
-      "courseName": "React",
-      "id": "4"
+      "courseName": "React"
     },
     {
+      "id": "5",
       "createdAt": "2024-06-12T06:00:00.000Z",
-      "courseName": "Reac Native ",
-      "id": "5"
+      "courseName": "Reac Native "
     }
   ],
   "inscriptions": [
     {
-      "id": "1",
-      "userId": "2",
+      "id": "21",
+      "userId": "6",
       "courseId": "4"
     },
     {
-      "id": "2",
+      "id": "22",
       "userId": "3",
       "courseId": "2"
     }

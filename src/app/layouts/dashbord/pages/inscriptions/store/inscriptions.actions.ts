@@ -5,7 +5,10 @@ export const InscriptionsActions = createActionGroup({
   source: 'Inscriptions',
   events: {
     'Load Inscriptions': emptyProps(),
-    'Load Inscriptions Success': props<{ data: Inscription[]}>(),
+    'Load Inscriptions Success': props<{ data: Inscription[] }>(),
     'Load Inscriptions Failure': props<{ error: unknown }>(),
-  }
+    'Load Subscribers': emptyProps(),
+    'Load Suscribers Success': props<{ data: Inscription[]}>(),
+    'Load Suscribers Failure': props<{ error: unknown }>(),
+  },
 });

@@ -14,7 +14,7 @@ export class InscriptionsService {
   }
   getInscriptions() {
     return this.http.get<Inscription[]>(
-      `${environment.apiURL}/inscriptions?_embed=user&_embed=course`
+      `${environment.apiURL}/inscriptions?_embed=user&_embed=curso`
     );
   }
 

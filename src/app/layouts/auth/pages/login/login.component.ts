@@ -7,9 +7,11 @@ import { AuthService } from '../../auth.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
+
 export class LoginComponent {
   loginForm: FormGroup;
   revealPassword = false;
+  extent = '500px';
 
   constructor(private fb: FormBuilder, private authService: AuthService) {
     this.loginForm = this.fb.group({

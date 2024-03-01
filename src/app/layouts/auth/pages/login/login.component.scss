@@ -1,7 +1,4 @@
-
-
 .form-login-container {
-  background-color: rgba(28, 12, 29, 0.541);
   padding: 20px;
   width: 100%;
   min-height: 100vh;
@@ -10,26 +7,14 @@
 }
 
 form {
-  background-color: rgba(166, 46, 170, 0.822);
-  height: 250px;
   margin-top: 50px;
   padding: 10px;
-  width: 400px;
-  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  width: 350px;
-}
-
-h2 {
-  color: white;
-}
-
-.mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  width: 350px;
+#input-extent {
+  width: 500px
 }
