@@ -15,13 +15,6 @@ export interface LoginData {
   password: null | string;
 }
 
-export const MOCK_USER = {
-  id: 48,
-  email: 'admin@a.com',
-  password: '12345',
-  role: 'ADMIN',
-};
-
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 

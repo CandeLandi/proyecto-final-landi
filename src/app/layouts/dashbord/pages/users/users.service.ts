@@ -33,10 +33,6 @@ export class UsersService {
       .onAction();
   }
   getUsers() {
-/*     const headers = new HttpHeaders();
-
-    headers.append('token', localStorage.getItem('token') || ''); */
-
     return this.http.get<User[]>(`${environment.apiURL}/users`).pipe(
       catchError((error) => {
         this.openSnackBar('Error al cargar los usuarios', 'ok');
@@ -71,7 +67,7 @@ export class UsersService {
   }
 
   getAllSubscribers(): Observable<Inscription[]>{
-    return this.http.get<Inscription[]>(`${environment.apiURL}/users?role=SUBSCRIBED`)
+    return this.http.get<Inscription[]>(`${environment.apiURL}/users?role=subscribed`)
   }
 
 }

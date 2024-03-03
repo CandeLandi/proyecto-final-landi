@@ -21,3 +21,7 @@ export const selectInscriptionsSubscribers = createSelector(
   selectInscriptionsState,
   (state) => state.subscribers
 )
+export const selectInscriptionCourses = createSelector(
+  selectInscriptionsState,
+  (state) => state.cursos
+)

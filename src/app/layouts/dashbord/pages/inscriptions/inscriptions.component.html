@@ -1,12 +1,11 @@
 <div class="inscriptions-page-container">
   <div *ngIf="isLoading$ | async; else notLoading ">
-
     Cargando...
+  </div>
+  <ng-template #notLoading></ng-template>
+  <button (click)="createInscription()" mat-flat-button type="button" color="basic"> Crear inscripción</button>
 
-    </div>
-
-    <ng-template #notLoading></ng-template>
-<button (click)="createInscription()" mat-flat-button type ="button" color="basic"> Crear inscripción</button>
-    <pre> {{ inscriptions | json  }}</pre>
-
+</div>
+<div>
+  <app-table-inscription></app-table-inscription>
 </div>

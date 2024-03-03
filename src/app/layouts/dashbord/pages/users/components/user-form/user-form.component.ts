@@ -16,7 +16,6 @@ export class UserFormComponent implements OnInit {
   userForm!: FormGroup;
 
   isLoading!: boolean;
-  //Funcion para enviar datos del hijo al padre, para pushear a la tabla
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
@@ -36,7 +35,7 @@ export class UserFormComponent implements OnInit {
       "id": new FormControl(""),
     });
 
-    if (this.data.user) {
+    if (this.data?.user) {
       this.userForm.get('firstName')?.setValue(this.data.user.firstName)
       this.userForm.get('lastName')?.setValue(this.data.user.lastName)
       this.userForm.get('email')?.setValue(this.data.user.email)
@@ -55,7 +54,7 @@ export class UserFormComponent implements OnInit {
   onSubmit(): void {
     if (this.userForm.invalid) return;
     this.isLoading = true
-    if (this.data.user) {
+    if (this.data?.user) {
       this.userService.updateUser(this.currentUser)
         .subscribe(user => {
           this.isLoading = false

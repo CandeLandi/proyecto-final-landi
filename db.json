@@ -26,7 +26,7 @@
       "lastName": "Merlo",
       "createdAt": 1428584202,
       "email": "rama@hotmail.com",
-      "role": "SUBSCRIBED",
+      "role": "subscribed",
       "password": "password2",
       "token": "1415"
     },
@@ -36,9 +36,27 @@
       "lastName": "Martinez",
       "createdAt": 1708540202,
       "email": "gi@hotmail.com",
-      "role": "SUBSCRIBED",
+      "role": "subscribed",
       "password": "password3",
       "token": "12455"
+    },
+    {
+      "id": "",
+      "firstName": "candela",
+      "lastName": "landi",
+      "email": "Cande-l27@hotmail.com",
+      "role": "user",
+      "password": "12345",
+      "token": " dhQZn"
+    },
+    {
+      "id": "",
+      "firstName": "Adri",
+      "lastName": "Cabello",
+      "email": "adri@a.com",
+      "role": "subscribed",
+      "password": "12345",
+      "token": " WM5Ym"
     }
   ],
   "courses": [
@@ -56,6 +74,11 @@
       "id": "5",
       "createdAt": "2024-06-12T06:00:00.000Z",
       "courseName": "Reac Native "
+    },
+    {
+      "id": "f4de",
+      "courseName": "PHP",
+      "createdAt": "2024-05-15T06:00:00.000Z"
     }
   ],
   "inscriptions": [
@@ -68,6 +91,14 @@
       "id": "22",
       "userId": "3",
       "courseId": "2"
+    },
+    {
+      "id": "5c36"
+    },
+    {
+      "id": "7bc6",
+      "userId": "6",
+      "courseId": "4"
     }
   ]
 }

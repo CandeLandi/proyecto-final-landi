@@ -30,7 +30,7 @@ export class TableCursosComponent {
       this.cursosService.getCursos().subscribe(
         (response: any) => {
           this.datasource = response;
-          this.isLoading = false;
+          this.isLoading = false;          
         }
       )
     }

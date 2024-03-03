@@ -7,22 +7,22 @@ import { NgIfContext } from '@angular/common';
 import { InscriptionsActions } from './store/inscriptions.actions';
 import { Inscription } from './store/models';
 import { MatDialog } from '@angular/material/dialog';
-import { InscriptionsDialogComponent } from './components/inscriptions-dialog/inscriptions-dialog.component';
+import { InscriptionsDialogComponent } from './components/dialog-inscriptions/inscriptions-dialog.component';
 
 @Component({
   selector: 'app-inscriptions',
   templateUrl: './inscriptions.component.html',
   styleUrl: './inscriptions.component.scss'
 })
-export class InscriptionsComponent implements OnDestroy {
+export class InscriptionsComponent {
   inscriptions: Inscription[] = [];
-  subscriptions: Subscription[] = [];
+  inscriptionSubscripion: Subscription[] = [];
   isLoading$: Observable<boolean>;
 
   constructor(private inscriptionsService: InscriptionsService,
     private store: Store, private matDialog: MatDialog) {
 
-    this.subscriptions.push(
+    this.inscriptionSubscripion.push(
       this.store.select(selectInscription).subscribe({
         next: (inscriptions) => {
           this.inscriptions = inscriptions;
@@ -34,11 +34,11 @@ export class InscriptionsComponent implements OnDestroy {
     this.store.dispatch(InscriptionsActions.loadInscriptions());
   }
   createInscription(): void {
-    this.matDialog.open(InscriptionsDialogComponent);
+    this.matDialog.open(InscriptionsDialogComponent,  {
+      data: { inscription: this.inscriptions }, 
+    }) 
   }
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
+
 }
 
 

@@ -13,7 +13,7 @@ export class CursosService {
 
 
   getCursos() {
-    return this.http.get(`${environment.apiURL}/courses`)
+    return this.http.get<Curso[]>(`${environment.apiURL}/courses`)
   }
 
   getCurso(curso_id: any) {

@@ -31,6 +31,8 @@ export class InscriptionsService {
   }
 
   createInscription(data: CreateInscriptionData) {
+    console.log(data)
     return this.http.post<Inscription>(`${environment.apiURL}/inscriptions`, data);
   }
+  
 }

@@ -17,7 +17,7 @@ export class FormCursosComponent {
   addCursosForm!: FormGroup;
 
   isLoading!: boolean;
-  //Funcion para enviar datos del hijo al padre, para pushear a la tabla
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
@@ -25,7 +25,7 @@ export class FormCursosComponent {
     private dialogRef: DialogRef<FormCursosComponent>,
     private activatedRoute: ActivatedRoute
   ) { }
-//Funcion para evitar que no se mande el formulario sin haber completado y cuando se envia, con reset, reseteamos los campos
+
 get currentCurso(): Curso {
   const curso = this.addCursosForm.value as Curso;
   return curso;
@@ -37,7 +37,7 @@ ngOnInit(): void {
     "createdAt": new FormControl(""),
   });
 
-  if (this.data.curso) {
+  if (this.data?.curso) {
     this.addCursosForm.get('courseName')?.setValue(this.data.curso.courseName)
     this.addCursosForm.get('createdAt')?.setValue(this.data.curso.createdAt)
   }
@@ -46,7 +46,7 @@ ngOnInit(): void {
 onSubmit(): void {
   if (this.addCursosForm.invalid) return;
   this.isLoading = true
-  if (this.data.curso) {
+  if (this.data?.curso) {
     this.cursosService.updateCurso(this.data.curso.id, this.currentCurso)
       .subscribe(curso => {
         this.isLoading = false
