@@ -10,7 +10,7 @@ import { InscriptionsComponent } from './pages/inscriptions/inscriptions.compone
 
 const routes: Routes = [
   {
-    path: 'auth',
+    path: '',
     component: LoginComponent,
     loadChildren: () =>
       import('../auth/auth.module').then((m) => m.AuthModule)
@@ -32,6 +32,7 @@ const routes: Routes = [
   {
     path: 'inscriptions',
     component: InscriptionsComponent,
+    canActivate: [authGuard],
     loadChildren: () =>
       import('./pages/inscriptions/inscriptions.module').then((m) => m.InscriptionsModule)
   },

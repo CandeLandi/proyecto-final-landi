@@ -1,27 +1,30 @@
 <div class="form-login-container">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="grid formgrid">
-    <div>
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input formControlName="email" matInput type="email" />
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <mat-label>Contraseña</mat-label>
-        <input formControlName="password" matInput type="password" [ngClass]="{'input-extent': extent}"/>
-        <mat-error>
-          {{ loginForm.get("password")?.errors | validationErrors }}
-        </mat-error>
-        <button
-          (click)="revealPassword = !revealPassword"
-          matSuffix
-          mat-icon-button
-        >
-          <mat-icon>visibility</mat-icon>
-        </button>
-      </mat-form-field>
-    </div>
-    <button mat-raised-button color="basic">Ingresar</button>
-  </form>
+  <div>
+    <h1> Inicia sesión</h1>
+  </div>
+  <div class="form-login">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="grid formgrid">
+      <div>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput type="email" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Contraseña</mat-label>
+          <input formControlName="password" matInput type="password" />
+          <mat-error>
+            {{ loginForm.get("password")?.errors | validationErrors }}
+          </mat-error>
+          <button (click)="revealPassword = !revealPassword" matSuffix mat-icon-button>
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="button-login">
+        <button mat-raised-button color="primary">Ingresar</button>
+      </div>
+    </form>
+  </div>
 </div>

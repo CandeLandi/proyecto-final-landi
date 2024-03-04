@@ -42,7 +42,7 @@ export class AuthService {
         `${environment.apiURL}/users?email=${data.email}&password=${data.password}`
       )
       .pipe(
-        tap((response) => {
+        tap((response: any) => {
           if (!!response[0]) {
             this.setAuthUser(response[0]);
             this.router.navigate(['cursos']);
@@ -65,7 +65,7 @@ export class AuthService {
         `${environment.apiURL}/users?token=${localStorage.getItem('token')}`
       )
       .pipe(
-        map((response) => {
+        map((response: any) => {
           if (response.length) {
             this.setAuthUser(response[0]);
             return true;

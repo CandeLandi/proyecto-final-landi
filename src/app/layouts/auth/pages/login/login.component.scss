@@ -1,20 +1,23 @@
 .form-login-container {
-  padding: 20px;
   width: 100%;
-  min-height: 100vh;
+  padding: 20px;
   display: flex;
-  justify-content: center;
-}
-
-form {
-  margin-top: 50px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  .form-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button-login {
+    display: flex;
+    justify-content: end;
+  }
 }
 
-#input-extent {
-  width: 500px
+
+
+:host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  width: 400px;
 }
