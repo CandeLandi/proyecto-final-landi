@@ -10,7 +10,7 @@ import { InscriptionsComponent } from './pages/inscriptions/inscriptions.compone
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'auth',
     component: LoginComponent,
     loadChildren: () =>
       import('../auth/auth.module').then((m) => m.AuthModule)
